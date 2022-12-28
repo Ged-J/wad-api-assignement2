@@ -1,2 +1,3 @@
-# wad-api-assignement2
- Assignement 2 for WAD2 module
+# Web App Dev 2: Web API Labs
+
+Practical labs for the WAD2 module, BSc. Applied Computing 
