@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -11,12 +11,14 @@ import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { AuthContext } from "../../authContext";
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
 const SiteHeader = ({ history }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const context = useContext(AuthContext);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -32,6 +34,7 @@ const SiteHeader = ({ history }) => {
     { label: "Favourite Actors", path: "/actors/favourites" },
     { label: "TV Shows", path: "/tvshows" },
     { label: "Favourite TV Shows", path: "/tvshows/favourites" },
+    
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -42,7 +45,9 @@ const SiteHeader = ({ history }) => {
     setAnchorEl(event.currentTarget);
   };
 
-  return (
+  return    (
+  //   <button onClick={() => context.signout()}>Sign out</button>
+  // ) : (
     <>
       <AppBar position="fixed" rgb= "0,0,255">
         <Toolbar>
@@ -52,6 +57,7 @@ const SiteHeader = ({ history }) => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             The Place all about movies and anything to do with them!
           </Typography>
+          <button onClick={() => context.signout()}>Sign out</button>
             {isMobile ? (
               <>
                 <IconButton
