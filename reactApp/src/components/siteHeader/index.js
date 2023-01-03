@@ -34,7 +34,8 @@ const SiteHeader = ({ history }) => {
     { label: "Favourite Actors", path: "/actors/favourites" },
     { label: "TV Shows", path: "/tvshows" },
     { label: "Favourite TV Shows", path: "/tvshows/favourites" },
-    
+    // { label: "Login", path: "/login" },
+    { label: "Sign Up", path: "/signup" }
   ];
 
   const handleMenuSelect = (pageURL) => {
